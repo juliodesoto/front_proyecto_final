@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../../backend-proyecto-julio"
+		},
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../../../Proyecto Api to do clase/api-todo-mongo"
+		},
+		{
+			"path": "../../../../Proyecto Api to do clase/todo-react"
+		}
+	],
+	"settings": {}
+}
