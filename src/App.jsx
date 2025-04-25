@@ -10,26 +10,26 @@ function App() {
   const [tipoUsuario, setTipoUsuario] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:3000/session", {
+    fetch("https://backend-proyecto-final-wg41.onrender.com/session", {
       credentials: "include"
     })
       .then(res => {
-        console.log("Respuesta cruda:", res); // 👈 log intermedio
+        console.log("Respuesta cruda:", res);
         return res.json();
       })
       .then(data => {
-        console.log("Datos parseados:", data); // 👈 este es el importante
+        console.log("Datos parseados:", data);
         if (data.usuario) {
           setLogueado(true);
           setUsuario(data.usuario);
           setTipoUsuario(data.tipo);
         }
       })
-      .catch(err => console.error("Error al obtener la sesión:", err)); // 👈 captura de errores
+      .catch(err => console.error("Error al obtener la sesión:", err));
   }, []);
 
   const handleLogout = () => {
-    fetch("http://localhost:3000/logout", {
+    fetch("https://backend-proyecto-final-wg41.onrender.com/logout", {
       credentials: "include"
     }).then(() => {
       setLogueado(false);
@@ -42,7 +42,7 @@ function App() {
     setLogueado(true);
 
     // Obtener el usuario y tipo tras iniciar sesión
-    fetch("http://localhost:3000/session", {
+    fetch("https://backend-proyecto-final-wg41.onrender.com/session", {
       credentials: "include"
     })
       .then(res => res.json())

@@ -11,7 +11,7 @@ function Login({ onLoginSuccess }) {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3000/login", {
+      const response = await fetch("https://backend-proyecto-final-wg41.onrender.com/login", {
         method: "POST",
         credentials: "include",
         headers: {
@@ -19,9 +19,9 @@ function Login({ onLoginSuccess }) {
         },
         body: new URLSearchParams({ usuario, password })
       });
-
       if (response.ok) {
         const datos = await response.json(); // recogemos usuario y tipo
+        console.log(datos);
         onLoginSuccess(datos); // pasamos los datos
       } else {
         setError("Usuario o contraseña incorrectos");

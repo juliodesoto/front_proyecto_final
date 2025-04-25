@@ -12,11 +12,12 @@ function Decisiones() {
 
   useEffect(() => {
 
-    fetch("http://localhost:3000/decisiones", {
+    fetch("https://backend-proyecto-final-wg41.onrender.com/decisiones", {
       
       credentials: "include",
     })
       .then(res => {
+        console.log(res);
         if (!res.ok) {
           throw new Error("No autorizado");
         }
@@ -34,7 +35,7 @@ function Decisiones() {
   const agregarDecision = () => {
     if (!nuevaDecision.trim()) return;
 
-    fetch("http://localhost:3000/decisiones/nueva", {
+    fetch("https://backend-proyecto-final-wg41.onrender.com/decisiones/nueva", {
       method: "POST",
       credentials: "include",
       body: JSON.stringify({ texto: nuevaDecision }),
@@ -68,7 +69,7 @@ function Decisiones() {
   const actualizarDecisionTexto = (id, cambios) => {
     setDecisiones(decisiones.map(decision => decision.id === id ? { ...decision, texto: cambios.texto } : decision));
 
-    fetch(`http://localhost:3000/decisiones/editar/texto/${id}`, {
+    fetch(`https://backend-proyecto-final-wg41.onrender.com/decisiones/editar/texto/${id}`, {
       method: "PUT",
       credentials: "include",
       body: JSON.stringify({ texto: cambios.texto }),
@@ -94,7 +95,7 @@ function Decisiones() {
 
     setDecisiones(decisiones.map(decision => decision.id === id ? { ...decision, resultado } : decision));
 
-    fetch(`http://localhost:3000/decisiones/editar/resultado/${id}`, {
+    fetch(`https://backend-proyecto-final-wg41.onrender.com/decisiones/editar/resultado/${id}`, {
       method: "PUT",
       credentials: "include",
       body: JSON.stringify({ resultado }),
@@ -118,7 +119,7 @@ function Decisiones() {
   const borrarDecision = (id) => {
     console.log("Borrar decisión con ID:", id);
 
-    fetch(`http://localhost:3000/decisiones/borrar/${id}`, {
+    fetch(`https://backend-proyecto-final-wg41.onrender.com/decisiones/borrar/${id}`, {
       method: "DELETE"
     })
       .then(res => {
@@ -138,7 +139,7 @@ function Decisiones() {
   const actualizarExito = (id, exito) => {
     setDecisiones(decisiones.map(decision => decision.id === id ? { ...decision, exito } : decision));
 
-    fetch(`http://localhost:3000/decisiones/editar/exito/${id}`, {
+    fetch(`https://backend-proyecto-final-wg41.onrender.com/decisiones/editar/exito/${id}`, {
       method: "PUT",
       credentials: "include",
       body: JSON.stringify({ exito }),
