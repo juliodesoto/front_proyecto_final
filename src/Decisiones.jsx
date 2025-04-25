@@ -14,7 +14,7 @@ function Decisiones() {
 
     fetch("http://localhost:3000/decisiones", {
       
-      credentials: "include", // 🔥 ESTA LÍNEA ES LA CLAVE
+      credentials: "include",
     })
       .then(res => {
         if (!res.ok) {

@@ -2,7 +2,7 @@ import "./index.css";
 import logo from "./estaticos/logo.png";
 
 function Header({ onLogout, usuario }) {
-  console.log("Usuario en Header:", usuario); // 👈 esto
+  console.log("Usuario en Header:", usuario);
 
   return (
     <header className="header">

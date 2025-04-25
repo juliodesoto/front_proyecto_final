@@ -21,8 +21,8 @@ function Login({ onLoginSuccess }) {
       });
 
       if (response.ok) {
-        const datos = await response.json(); // ← recogemos nombre y tipo del backend
-        onLoginSuccess(datos); // ← pasamos los datos al padre
+        const datos = await response.json(); // recogemos usuario y tipo
+        onLoginSuccess(datos); // pasamos los datos
       } else {
         setError("Usuario o contraseña incorrectos");
       }
